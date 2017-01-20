@@ -2,16 +2,16 @@
 const routerMap = {
   childRoutes: [{
     path: '/',
-    component: require('./App').default,
+    component: require('./containers/App').default,
     indexRoute: {
-      component: require('./pages/Home').default
+      component: require('./pages/todos/TodoPage').default
     },
     childRoutes: [
       {
-        path: 'about',
+        path: 'todos',
         getComponent (nextState, cb) {
           require.ensure([], (require) => {
-            cb(null, require('./pages/About').default)
+            cb(null, require('./pages/todos/TodoPage').default)
           })
         }
       }
